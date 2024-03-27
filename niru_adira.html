@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niru Adira</title>
+    <link rel="stylesheet" href="niru_adira.css">
+</head>
+<body>
+    <h1 class="header">Tiruan dari Website Adira</h1>
+
+     <!-- container utama -->
+    <div class="container" id="container">
+        <h2 id="container_header" class="container_header ">Simulasikan Kredit Sesuai Kebutuhanmu</h2>
+        <div id="list_kebutuhan" class="list_kebutuhan" >
+            <div class="kebutuhan">
+                <a onclick="displayMobil()" >
+                    <img src="download.jpeg" width="100px"/>
+                    <p>Mobil</p>
+                </a>
+            </div>
+            <div class="kebutuhan">
+                <a onclick="displayMotor()" href="#">
+                    <img src="download.jpeg" width="100px"/>
+                    <p>Motor</p>
+                </a>
+            </div>
+            <div class="kebutuhan">
+                <a onclick="displayElektronik()" href="#">
+                    <img src="download.jpeg" width="100px"/>
+                    <p>Elektronik</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- container utk mobil -->
+    <div class="container" id="mobil" style="display: none;">
+        <h2 id="container_header" class="container_header ">Kredit Mobil Baru</h2>
+
+        <!-- pilih acuan container-->
+        <div id="pilihAcuan" class="pilihAcuan">
+            <div class="row">
+                <div class="form-cont">
+                    <form>
+                        <label for="harga">Harga Mobil Baru</label>
+                        <input type="number" id="harga" name="harga">
+                    </form>
+                    <p>Note: minimal harga mobil baru 10jt rupiah</p>
+                </div>   
+
+                <div class="form-cont">
+                    <form>
+                        <label for="acuan">Pilih Acuan Perhitungan</label>
+                        <select id="acuan" name="acuan" onchange="pilihTipe(this.value)">    
+                            <option value="0">Pilih Tipe Perhitungan</option>
+                            <option value="1">Total Pembayaran Utama</option>
+                            <option value="2">Angsuran Per Bulan</option>
+                        </select>
+                    </form>
+                </div>                   
+            </div>
+
+            <p style="text-align: center;"><strong>Hasil dari Simulasi Kredit bersifat tidak mengikat dan akan berbeda tiap kota, dealer dan jenis barang</strong></p>
+        </div>
+
+        <!-- total bayar container -->
+        <div id="total_bayar" class="pilihAcuan" style="margin-top: 50px; display: none;">
+            <div class="row">
+                <div class="form-cont">
+                    <form>
+                        <label for="total_bayar">Total pembayaran pertama</label>
+                        <input type="number" id="total_bayar" name="total_bayar">
+                    </form>
+                    <p style="font-size: x-small;">Note : Minimal Pembayaran Pertama 30% dari harga Mobil Baru</p>
+                </div>   
+
+                <div class="form-cont">
+                    <form>
+                        <label>Pilih Area</label>
+                        <input type="number">
+                    </form>
+                </div>                   
+            </div>
+        </div>
+
+        <!-- angsuran container -->
+        <div id="angsuran" class="pilihAcuan" style="margin-top: 50px; display: none;">
+            <div class="row">
+                <div class="form-cont">
+                    <form>
+                        <label for="total_bayar">Angsuran per Bulan </label>
+                        <input type="number" id="total_bayar" name="total_bayar">
+                    </form>
+                    <!-- <p >Note : Minimal Pembayaran Pertama 30% dari harga Mobil Baru</p> -->
+                </div>   
+
+                <div class="form-cont">
+                    <form>
+                        <label>Pilih Area</label>
+                        <input type="number">
+                    </form>
+                </div>                   
+            </div>
+        </div>
+        <!-- button -->
+        <div class="row" style="margin-top: 30px;">
+            <button class="button">Simulasi</button>
+            <a href="niru_adira.html">
+                <button class="button">Kembali</button> 
+            </a>
+        </div>
+    </div>
+
+    <!-- container utk motor -->
+    <div class="container" id="motor" style="display: none;">
+        <h2 id="container_header" class="container_header ">Kredit Motor Baru</h2>
+
+        <!-- pilih acuan container-->
+        <div id="pilihAcuan1" class="pilihAcuan">
+            <div class="row">
+                <div class="form-cont">
+                    <form>
+                        <label for="harga">Harga Motor Baru</label>
+                        <input type="number" id="harga" name="harga">
+                    </form>
+                    <p>Note: minimal harga mobil baru 10jt rupiah</p>
+                </div>   
+
+                <div class="form-cont">
+                    <form>
+                        <label for="acuan1">Pilih Acuan Perhitungan</label>
+                        <select id="acuan1" name="acuan1" onchange="pilihTipe1(this.value)">    
+                            <option value="0">Pilih Tipe Perhitungan</option>
+                            <option value="1">Total Pembayaran Utama</option>
+                            <option value="2">Angsuran Per Bulan</option>
+                        </select>
+                    </form>
+                </div>                   
+            </div>
+
+            <p style="text-align: center;"><strong>Hasil dari Simulasi Kredit bersifat tidak mengikat dan akan berbeda tiap kota, dealer dan jenis barang</strong></p>
+        </div>
+
+        <!-- total bayar container -->
+        <div id="total_bayar1" class="pilihAcuan" style="margin-top: 50px; display: none;">
+            <div class="row">
+                <div class="form-cont">
+                    <form>
+                        <label for="total_bayar">Total pembayaran pertama</label>
+                        <input type="number" id="total_bayar" name="total_bayar">
+                    </form>
+                    <p style="font-size: x-small;">Note : Minimal Pembayaran Pertama 30% dari harga Mobil Baru</p>
+                </div>   
+
+                <div class="form-cont">
+                    <form>
+                        <label>Pilih Area</label>
+                        <input type="number">
+                    </form>
+                </div>                   
+            </div>
+        </div>
+
+        <!-- angsuran container -->
+        <div id="angsuran1" class="pilihAcuan" style="margin-top: 50px; display: none;">
+            <div class="row">
+                <div class="form-cont">
+                    <form>
+                        <label for="total_bayar">Angsuran per Bulan </label>
+                        <input type="number" id="total_bayar" name="total_bayar">
+                    </form>
+                    <!-- <p >Note : Minimal Pembayaran Pertama 30% dari harga Mobil Baru</p> -->
+                </div>   
+
+                <div class="form-cont">
+                    <form>
+                        <label>Pilih Area</label>
+                        <input type="number">
+                    </form>
+                </div>                   
+            </div>
+        </div>
+        <!-- button -->
+        <div class="row" style="margin-top: 30px;">
+            <button class="button">Simulasi</button>
+            <a href="niru_adira.html">
+                <button class="button">Kembali</button> 
+            </a>
+        </div>
+    </div>
+
+    <!-- container utk barang elektronik -->
+    <div class="container" id="elektronik" style="display: none;">
+        <h2 id="container_header" class="container_header ">Kredit Elektronik</h2>
+
+        <!-- pilih acuan container-->
+        <div id="pilihAcuan" class="pilihAcuan">
+            <div class="row">
+                <div class="form-cont">
+                    <form>
+                        <label for="harga">Harga Barang Elektronik</label>
+                        <input type="number" id="harga" name="harga">
+                    </form>
+                    <p>Note: minimal harga mobil baru 10jt rupiah</p>
+                </div>   
+
+                <div class="form-cont">
+                    <form>
+                        <label for="acuan">Pilih Acuan Perhitungan</label>
+                        <select id="acuan2" name="acuan2" onchange="pilihTipe2(this.value)">    
+                            <option value="0">Pilih Tipe Perhitungan</option>
+                            <option value="1">Total Pembayaran Utama</option>
+                            <option value="2">Angsuran Per Bulan</option>
+                        </select>
+                    </form>
+                </div>                   
+            </div>
+
+            <p style="text-align: center;"><strong>Hasil dari Simulasi Kredit bersifat tidak mengikat dan akan berbeda tiap kota, dealer dan jenis barang</strong></p>
+        </div>
+
+        <!-- total bayar container -->
+        <div id="total_bayar2" class="pilihAcuan" style="margin-top: 50px; display: none;">
+            <div class="row">
+                <div class="form-cont">
+                    <form>
+                        <label for="total_bayar">Total pembayaran pertama</label>
+                        <input type="number" id="total_bayar" name="total_bayar">
+                    </form>
+                    <p style="font-size: x-small;">Note : Minimal Pembayaran Pertama 30% dari harga Mobil Baru</p>
+                </div>   
+
+                <div class="form-cont">
+                    <form>
+                        <label>Pilih Area</label>
+                        <input type="number">
+                    </form>
+                </div>                   
+            </div>
+        </div>
+
+        <!-- angsuran container -->
+        <div id="angsuran2" class="pilihAcuan" style="margin-top: 50px; display: none;">
+            <div class="row">
+                <div class="form-cont">
+                    <form>
+                        <label for="total_bayar">Angsuran per Bulan </label>
+                        <input type="number" id="total_bayar" name="total_bayar">
+                    </form>
+                    <!-- <p >Note : Minimal Pembayaran Pertama 30% dari harga Mobil Baru</p> -->
+                </div>   
+
+                <div class="form-cont">
+                    <form>
+                        <label>Pilih Area</label>
+                        <input type="number">
+                    </form>
+                </div>                   
+            </div>
+        </div>
+        <!-- button -->
+        <div class="row" style="margin-top: 30px;">
+            <button class="button">Simulasi</button>
+            <a href="niru_adira.html">
+                <button class="button">Kembali</button> 
+            </a>
+        </div>
+    </div>
+
+    <script>
+        let container = document.getElementById("list_kebutuhan")
+
+        function displayMobil(){
+            let container_header = document.getElementById("container")
+            container_header.style.display="none";
+
+            let container_mobil = document.getElementById("mobil")
+            container_mobil.style.display="block";
+        }
+
+        function displayMotor(){
+            let container_header = document.getElementById("container")
+            container_header.style.display="none";
+
+            let container_mobil = document.getElementById("motor")
+            container_mobil.style.display="block";
+        }
+
+
+        function displayElektronik(){
+            let container_header = document.getElementById("container")
+            container_header.style.display="none";
+
+            let container_mobil = document.getElementById("elektronik")
+            container_mobil.style.display="block";
+        }
+
+        function pilihTipe(value){
+            let totalBayarCont = document.getElementById("total_bayar")
+            let angsuranCont = document.getElementById("angsuran")
+            if(value==0){
+                totalBayarCont.style.display='none';
+                angsuranCont.style.display='none';
+            } else if (value==1){
+                totalBayarCont.style.display='block';
+                angsuranCont.style.display='none';
+            } else {
+                totalBayarCont.style.display='none';
+                angsuranCont.style.display='block';
+            }
+
+        }
+
+        function pilihTipe1(value){
+            let totalBayarCont = document.getElementById("total_bayar1")
+            let angsuranCont = document.getElementById("angsuran1")
+            if(value==0){
+                totalBayarCont.style.display='none';
+                angsuranCont.style.display='none';
+            } else if (value==1){
+                totalBayarCont.style.display='block';
+                angsuranCont.style.display='none';
+            } else {
+                totalBayarCont.style.display='none';
+                angsuranCont.style.display='block';
+            }
+        }
+
+        function pilihTipe2(value){
+            let totalBayarCont = document.getElementById("total_bayar2")
+            let angsuranCont = document.getElementById("angsuran2")
+            if(value==0){
+                totalBayarCont.style.display='none';
+                angsuranCont.style.display='none';
+            } else if (value==1){
+                totalBayarCont.style.display='block';
+                angsuranCont.style.display='none';
+            } else {
+                totalBayarCont.style.display='none';
+                angsuranCont.style.display='block';
+            }
+        }
+        // console.log(container)
+    </script>
+</body>
+</html>
